@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diagnóstico Estratégico Gratuito — Find 4 You para Beleza & Estética</title>
-<meta name="description" content="Responda em 3-5 minutos e receba um raio-x da aquisição de clientes da sua clínica/salão/centro estético — feito pela Find 4 You.">
+<meta name="description" content="Responda em alguns minutos e receba um raio-x da aquisição de clientes da sua clínica/salão/centro estético — feito pela Find 4 You.">
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -132,7 +132,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-top:18px;
   }
   label .req{color:var(--f4y-rosa);}
-  input[type=text], input[type=tel], input[type=url], textarea, select{
+  label .opt{color:var(--f4y-cinza); font-weight:400; font-size:0.78rem;}
+  input[type=text], input[type=tel], input[type=email], input[type=url], textarea, select{
     width:100%;
     padding:12px 14px;
     border:1.5px solid #E4E2E8;
@@ -165,6 +166,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color:#fff;
   }
   .choice input{display:none;}
+  .choice-hint{font-size:0.78rem; color:var(--f4y-cinza); margin-top:6px;}
 
   .scale{display:flex; gap:8px; margin-top:8px;}
   .scale .choice{flex:1; text-align:center; padding:12px 0; font-family:var(--font-label); font-size:1.1rem;}
@@ -209,8 +211,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hint{font-size:0.78rem; color:var(--f4y-cinza); margin-top:6px;}
 
   #success{display:none; text-align:center; padding:12px 4px 4px;}
-  #success h2{font-family:var(--font-display); font-size:1.4rem; margin-bottom:12px;}
-  #success p{color:var(--f4y-preto-texto); opacity:0.85; margin-bottom:20px;}
+  #success h2{font-family:var(--font-display); font-size:1.4rem; margin-bottom:14px;}
+  #success p{color:var(--f4y-preto-texto); opacity:0.85; margin-bottom:14px; text-align:left;}
+  #success .badge{
+    display:inline-block;
+    background:var(--f4y-cinza-claro);
+    color:var(--f4y-preto-texto);
+    font-size:0.78rem;
+    font-weight:600;
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
   #success .logo-mini{
     width:56px; height:56px; border-radius:50%;
     background:var(--f4y-gradiente);
@@ -244,7 +256,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header class="hero">
   <div class="eyebrow">Find 4 You · Beleza & Estética</div>
   <h1>Diagnóstico Estratégico Gratuito</h1>
-  <p>3-5 minutos. Sem compromisso. No final, você recebe um raio-x dos 3 gargalos que mais custam receita na sua agenda hoje.</p>
+  <p>Alguns minutos. Sem compromisso. No final, avaliamos os 3 gargalos que mais custam receita na sua agenda hoje.</p>
   <div class="proof">
     <span><b>+47,6%</b>conversões — Be You (Cascais)</span>
     <span><b>-18%</b>CPA no mesmo período</span>
@@ -270,17 +282,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <label>Seu nome completo <span class="req">*</span></label>
         <input type="text" name="nome" required>
 
-        <label>Nome do negócio (clínica/salão/centro estético) <span class="req">*</span></label>
+        <label>Nome do negócio <span class="req">*</span></label>
         <input type="text" name="negocio" required>
 
-        <label>Cidade / país de atuação <span class="req">*</span></label>
-        <input type="text" name="cidade_pais" placeholder="ex: Cascais, Portugal" required>
+        <label>Mercado <span class="req">*</span></label>
+        <div class="choice-group" data-name="mercado">
+          <label class="choice" data-value="brasil"><input type="radio" name="mercado" value="Brasil" required>Brasil</label>
+          <label class="choice" data-value="portugal"><input type="radio" name="mercado" value="Portugal">Portugal</label>
+        </div>
 
-        <label>WhatsApp / melhor contato <span class="req">*</span></label>
-        <input type="tel" name="contato" required>
+        <label>WhatsApp <span class="req">*</span></label>
+        <input type="tel" name="whatsapp" required>
 
-        <label>Instagram e/ou site (se tiver)</label>
+        <label>E-mail <span class="req">*</span></label>
+        <input type="email" name="email" required>
+
+        <label>Link do Instagram e do site <span class="opt">(se tiver)</span></label>
         <input type="text" name="links" placeholder="@seuinstagram · seusite.com">
+
+        <label>Tipo de negócio (Beleza/Estética) <span class="req">*</span></label>
+        <div class="choice-group" data-name="tipo_negocio">
+          <label class="choice" data-value="salao"><input type="radio" name="tipo_negocio" value="Salão de Beleza" required>Salão de Beleza</label>
+          <label class="choice" data-value="centro"><input type="radio" name="tipo_negocio" value="Centro Estético">Centro Estético</label>
+          <label class="choice" data-value="outro"><input type="radio" name="tipo_negocio" value="Outro">Outro</label>
+        </div>
       </section>
 
       <!-- STEP 2 — Qualificação -->
@@ -290,7 +315,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <label>Faturamento médio mensal do negócio hoje <span class="req">*</span></label>
         <div class="choice-group" data-name="faturamento">
-          <label class="choice" data-value="ate10k"><input type="radio" name="faturamento" value="até 10 mil" required>até 10 mil</label>
+          <label class="choice" data-value="ate10k"><input type="radio" name="faturamento" value="até 10 mil" required>até R$/€ 10 mil</label>
           <label class="choice" data-value="10-30k"><input type="radio" name="faturamento" value="10-30 mil">10–30 mil</label>
           <label class="choice" data-value="30-80k"><input type="radio" name="faturamento" value="30-80 mil">30–80 mil</label>
           <label class="choice" data-value="80k+"><input type="radio" name="faturamento" value="80 mil+">80 mil+</label>
@@ -300,10 +325,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="choice-group" data-name="investe_trafego">
           <label class="choice" data-value="nao"><input type="radio" name="investe_trafego" value="Não" required>Não</label>
           <label class="choice" data-value="parou"><input type="radio" name="investe_trafego" value="Já tentei e parei">Já tentei e parei</label>
-          <label class="choice" data-value="sim"><input type="radio" name="investe_trafego" value="Sim, invisto hoje">Sim, invisto hoje</label>
+          <label class="choice" data-value="sim"><input type="radio" name="investe_trafego" value="Sim - invisto hoje">Sim, invisto hoje</label>
         </div>
         <div class="conditional" id="cond-verba-atual">
-          <label>Quanto investe por mês, aproximadamente?</label>
+          <label>Se sim, quanto/mês?</label>
           <input type="text" name="verba_atual" placeholder="ex: R$ 2.000/mês">
         </div>
 
@@ -315,12 +340,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <label class="choice" data-value="ninguem"><input type="radio" name="quem_cuida" value="Ninguém">Ninguém</label>
         </div>
 
-        <label>Qual seu maior objetivo nos próximos 90 dias?</label>
+        <label>Qual seu maior objetivo nos próximos 90 dias? <span class="opt">(opcional)</span></label>
         <input type="text" name="objetivo_90dias" placeholder="ex: encher a agenda de HIFU">
 
-        <label>De 1 a 5, o quão urgente é resolver isso? <span class="req">*</span></label>
+        <label>Numa escala de 1 a 5, o quão urgente é resolver isso? <span class="opt">(opcional)</span></label>
         <div class="scale" data-name="urgencia">
-          <label class="choice" data-value="1"><input type="radio" name="urgencia" value="1" required>1</label>
+          <label class="choice" data-value="1"><input type="radio" name="urgencia" value="1">1</label>
           <label class="choice" data-value="2"><input type="radio" name="urgencia" value="2">2</label>
           <label class="choice" data-value="3"><input type="radio" name="urgencia" value="3">3</label>
           <label class="choice" data-value="4"><input type="radio" name="urgencia" value="4">4</label>
@@ -329,24 +354,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="hint">1 = posso esperar · 5 = preciso pra ontem</p>
       </section>
 
-      <!-- STEP 3 — Bloco Beleza/Estética -->
+      <!-- STEP 3 — Operação -->
       <section class="step" data-step="3">
         <h2>Sobre sua operação</h2>
         <p class="step-sub">Direto ao ponto — só o que muda o diagnóstico.</p>
 
-        <label>Seus 2-3 serviços mais lucrativos e o ticket médio de cada <span class="req">*</span></label>
-        <textarea name="servicos_ticket" placeholder="ex: HIFU R$1.800 · PMU R$900" required></textarea>
+        <label>Quais seus 2-3 serviços mais lucrativos e o ticket médio de cada? <span class="opt">(opcional)</span></label>
+        <textarea name="servicos_ticket" placeholder="ex: HIFU R$1.800 · PMU R$900"></textarea>
 
-        <label>De onde vêm a maioria das clientes hoje? <span class="req">*</span></label>
-        <input type="text" name="origem_clientes" placeholder="indicação · orgânico · Google · anúncios · Fresha" required>
+        <label>De onde vêm a maioria das clientes hoje? <span class="opt">(selecione quantas quiser)</span></label>
+        <div class="choice-group" data-multi="true" data-name="origem_clientes">
+          <label class="choice" data-value="indicacao"><input type="checkbox" name="origem_clientes" value="Indicação">Indicação</label>
+          <label class="choice" data-value="organico"><input type="checkbox" name="origem_clientes" value="Orgânico">Orgânico</label>
+          <label class="choice" data-value="google"><input type="checkbox" name="origem_clientes" value="Google">Google</label>
+          <label class="choice" data-value="anuncios"><input type="checkbox" name="origem_clientes" value="Anúncios">Anúncios</label>
+          <label class="choice" data-value="sistema"><input type="checkbox" name="origem_clientes" value="Sistema de agendamento">Sistema de agendamento</label>
+        </div>
 
-        <label>Como está sua taxa de no-show (falta de agendamento)?</label>
+        <label>Quantos atendimentos por mês (aprox.)? <span class="opt">(opcional)</span></label>
+        <input type="text" name="atendimentos_mes">
+
+        <label>Como está sua taxa de no-show (falta de agendamento)? <span class="opt">(opcional)</span></label>
         <input type="text" name="noshow">
 
-        <label>Como a cliente agenda hoje? Há recompra/retorno estruturado?</label>
-        <input type="text" name="agendamento" placeholder="WhatsApp · Fresha · direct · telefone">
+        <label>Como a cliente agenda hoje? <span class="opt">(selecione quantas quiser)</span></label>
+        <div class="choice-group" data-multi="true" data-name="agendamento">
+          <label class="choice" data-value="whatsapp"><input type="checkbox" name="agendamento" value="WhatsApp">WhatsApp</label>
+          <label class="choice" data-value="sistema"><input type="checkbox" name="agendamento" value="Sistema de agendamento">Sistema de agendamento</label>
+          <label class="choice" data-value="direct"><input type="checkbox" name="agendamento" value="Direct Instagram">Direct Instagram</label>
+          <label class="choice" data-value="telefone"><input type="checkbox" name="agendamento" value="Telefone">Telefone</label>
+        </div>
 
-        <label>Seus serviços premium (ex: HIFU, PMU) vendem bem ou ficam parados?</label>
+        <label>Seus serviços premium (ex: HIFU, PMU) vendem bem ou ficam parados? <span class="opt">(opcional)</span></label>
         <input type="text" name="premium_performance">
       </section>
 
@@ -355,13 +394,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2>Últimas perguntas</h2>
         <p class="step-sub">Quase lá.</p>
 
-        <label>Você já recebeu proposta de agência antes? Como foi a experiência?</label>
+        <label>Você já recebeu proposta de agência antes? Como foi a experiência? <span class="opt">(opcional)</span></label>
         <textarea name="experiencia_agencia"></textarea>
 
-        <label>Tem verba mensal separada para marketing/anúncios? Faixa aproximada.</label>
+        <label>Tem verba mensal separada para marketing/anúncios? Faixa aproximada. <span class="opt">(opcional)</span></label>
         <input type="text" name="verba_disponivel">
 
-        <label>Algo que você queira que a gente olhe com atenção no diagnóstico?</label>
+        <label>Algo que você queira que a gente olhe com atenção no diagnóstico? <span class="opt">(opcional)</span></label>
         <textarea name="observacao_livre"></textarea>
 
         <div id="error-banner"></div>
@@ -371,8 +410,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div id="success">
       <div class="logo-mini">f</div>
+      <span class="badge">Sem pitch de vendas — só análise</span>
       <h2>Recebemos suas respostas.</h2>
-      <p>Vamos aplicar o raio-x de aquisição no seu caso. Se você entrar no perfil de prioridade, a gente te chama pra marcar os 30 minutos da call.</p>
+      <p>Vamos analisar tudo com calma. <strong>Em até 48h</strong> você recebe nosso retorno pra marcarmos a apresentação do diagnóstico: uma conversa 100% de análise, sem pitch de venda, só pra te mostrar os 3 gargalos que mais custam receita hoje.</p>
+      <p>Avançar para uma proposta com valores é uma decisão sua, no seu tempo — só depois que fizer sentido pra você.</p>
     </div>
 
     <div class="nav-row" id="nav-row">
@@ -392,24 +433,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const btnBack = document.getElementById('btn-back');
   const progressEls = document.querySelectorAll('.p-step');
 
-  document.querySelectorAll('.choice').forEach(choice => {
-    choice.addEventListener('click', () => {
-      const input = choice.querySelector('input');
-      const name = input.name;
-      document.querySelectorAll(`input[name="${name}"]`).forEach(i => {
-        i.closest('.choice').classList.remove('selected');
+  document.querySelectorAll('.choice-group').forEach(group => {
+    const isMulti = group.dataset.multi === 'true';
+    group.querySelectorAll('.choice').forEach(choice => {
+      choice.addEventListener('click', () => {
+        const input = choice.querySelector('input');
+        if (isMulti) {
+          input.checked = !input.checked;
+          choice.classList.toggle('selected', input.checked);
+        } else {
+          const name = input.name;
+          group.querySelectorAll(`input[name="${name}"]`).forEach(i => {
+            i.closest('.choice').classList.remove('selected');
+          });
+          input.checked = true;
+          choice.classList.add('selected');
+          handleConditionals(name, input.value);
+        }
+        validateStep();
       });
-      input.checked = true;
-      choice.classList.add('selected');
-      handleConditionals(name, input.value);
-      validateStep();
     });
   });
 
   function handleConditionals(name, value){
     if(name === 'investe_trafego'){
       const cond = document.getElementById('cond-verba-atual');
-      cond.classList.toggle('show', value === 'Sim, invisto hoje');
+      cond.classList.toggle('show', value === 'Sim - invisto hoje');
     }
   }
 
@@ -469,7 +518,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const errorBanner = document.getElementById('error-banner');
     errorBanner.style.display = 'none';
 
-    const data = Object.fromEntries(new FormData(form).entries());
+    const fd = new FormData(form);
+    const data = {};
+    for (const key of fd.keys()) {
+      const values = fd.getAll(key);
+      data[key] = values.length > 1 ? values : values[0];
+    }
 
     try{
       const res = await fetch('/api/submit', {

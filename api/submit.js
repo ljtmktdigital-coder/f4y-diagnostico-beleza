@@ -5,11 +5,8 @@
 //   NOTION_TOKEN        -> token secreto da sua integração interna do Notion
 //   NOTION_DATABASE_ID  -> ID da database "Respostas · Diagnóstico F4Y · Beleza"
 //
-// Como criar (uma vez só):
-//   1. https://www.notion.so/my-integrations -> "New integration" -> copiar o "Internal Integration Secret"
-//   2. Criar uma database no Notion com as propriedades listadas no README
-//   3. Na database, clicar em "..." -> "Connections" -> conectar a integração criada
-//   4. Copiar o ID da database (parte da URL entre a barra e o "?v=")
+// IMPORTANTE: a database no Notion precisa ter estas colunas EXATAS (nome e tipo),
+// veja o README para o passo a passo de criação/atualização.
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -27,16 +24,24 @@ export default async function handler(req, res) {
   const d = req.body || {};
   const richText = (value) => [{ text: { content: (value || '-').toString().slice(0, 1900) } }];
 
+  // Campos multi-select (checkbox) chegam como array quando há mais de 1 valor
+  // marcado, ou como string única quando só 1 foi marcado. Normaliza pros dois casos.
+  const toMultiSelect = (value) => {
+    if (!value) return [];
+    const arr = Array.isArray(value) ? value : [value];
+    return arr.filter(Boolean).map((name) => ({ name }));
+  };
+
   const notionPayload = {
     parent: { database_id: NOTION_DATABASE_ID },
     properties: {
-      // Ajuste os nomes das propriedades abaixo para baterem exatamente com
-      // os nomes das colunas criadas na sua database do Notion.
       'Nome': { title: [{ text: { content: d.nome || 'Sem nome' } }] },
       'Negócio': { rich_text: richText(d.negocio) },
-      'Cidade/País': { rich_text: richText(d.cidade_pais) },
-      'Contato': { rich_text: richText(d.contato) },
+      'Mercado': { select: { name: d.mercado || 'não informado' } },
+      'Contato': { rich_text: richText(d.whatsapp) },
+      'E-mail': { rich_text: richText(d.email) },
       'Links': { rich_text: richText(d.links) },
+      'Tipo de negócio': { select: { name: d.tipo_negocio || 'não informado' } },
       'Faturamento': { select: { name: d.faturamento || 'não informado' } },
       'Já investe em tráfego': { select: { name: d.investe_trafego || 'não informado' } },
       'Verba atual': { rich_text: richText(d.verba_atual) },
@@ -44,15 +49,16 @@ export default async function handler(req, res) {
       'Objetivo 90 dias': { rich_text: richText(d.objetivo_90dias) },
       'Urgência': { number: parseInt(d.urgencia, 10) || null },
       'Serviços/ticket': { rich_text: richText(d.servicos_ticket) },
-      'Origem das clientes': { rich_text: richText(d.origem_clientes) },
+      'Origem das clientes': { multi_select: toMultiSelect(d.origem_clientes) },
+      'Atendimentos/mês': { rich_text: richText(d.atendimentos_mes) },
       'No-show': { rich_text: richText(d.noshow) },
-      'Agendamento/recompra': { rich_text: richText(d.agendamento) },
+      'Agendamento': { multi_select: toMultiSelect(d.agendamento) },
       'Performance de premium': { rich_text: richText(d.premium_performance) },
       'Experiência com agência': { rich_text: richText(d.experiencia_agencia) },
       'Verba disponível': { rich_text: richText(d.verba_disponivel) },
       'Observação livre': { rich_text: richText(d.observacao_livre) },
       'Vertical': { select: { name: 'Beleza/Estética' } },
-      'Status': { select: { name: 'Novo — não triado' } },
+      'Status': { select: { name: 'Novo - não triado' } },
     },
   };
 

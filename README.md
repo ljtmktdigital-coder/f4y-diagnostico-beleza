@@ -1,6 +1,6 @@
 # Diagnóstico Estratégico F4Y — Exclusivo Beleza & Estética
 
-Versão dedicada ao nicho de Beleza/Estética: sem bifurcação de vertical, prova social (Be You) já no topo, e o bloco 3 é fixo com as 5 perguntas de beleza.
+Versão v2: segue a ordem e as perguntas exatas do formulário de referência, com Mercado, Tipo de negócio, E-mail e Atendimentos/mês como campos novos.
 
 ## O que tem aqui
 
@@ -9,19 +9,37 @@ public/index.html   -> a página do formulário
 api/submit.js        -> função que recebe a resposta e cria a página no Notion
 ```
 
-## Passo a passo pra colocar no ar
+## ⚠ Se você já tinha a database da v1 criada
 
-### 1. Criar a database no Notion
+Ela precisa de 4 colunas novas e 2 colunas alteradas de tipo. Abra a database no Notion e:
 
-Crie uma database chamada, por exemplo, **"Respostas · Diagnóstico F4Y · Beleza"**, com estas colunas (nome tem que bater com o `api/submit.js`):
+**Adicionar (colunas novas):**
+| Coluna | Tipo | Opções (se for Select) |
+|---|---|---|
+| Mercado | Select | Brasil, Portugal |
+| Tipo de negócio | Select | Salão de Beleza, Centro Estético, Outro |
+| E-mail | Text | — |
+| Atendimentos/mês | Text | — |
+
+**Alterar o tipo (clique no cabeçalho da coluna → Edit property → Type):**
+| Coluna | Tipo antigo | Tipo novo |
+|---|---|---|
+| Origem das clientes | Text | Multi-select (opções: Indicação, Orgânico, Google, Anúncios, Sistema de agendamento) |
+| Agendamento/recompra → renomear para **Agendamento** | Text | Multi-select (opções: WhatsApp, Sistema de agendamento, Direct Instagram, Telefone) |
+
+O `api/submit.js` já está escrito esperando esses nomes e tipos exatos — se o nome de alguma coluna no Notion ficar diferente (acento, maiúscula, espaço), o envio vai falhar com erro 502.
+
+## Se você ainda não criou a database, crie do zero com estas colunas
 
 | Coluna | Tipo |
 |---|---|
 | Nome | Title |
 | Negócio | Text |
-| Cidade/País | Text |
+| Mercado | Select (Brasil, Portugal) |
 | Contato | Text |
+| E-mail | Text |
 | Links | Text |
+| Tipo de negócio | Select (Salão de Beleza, Centro Estético, Outro) |
 | Faturamento | Select |
 | Já investe em tráfego | Select |
 | Verba atual | Text |
@@ -29,37 +47,23 @@ Crie uma database chamada, por exemplo, **"Respostas · Diagnóstico F4Y · Bele
 | Objetivo 90 dias | Text |
 | Urgência | Number |
 | Serviços/ticket | Text |
-| Origem das clientes | Text |
+| Origem das clientes | Multi-select (Indicação, Orgânico, Google, Anúncios, Sistema de agendamento) |
+| Atendimentos/mês | Text |
 | No-show | Text |
-| Agendamento/recompra | Text |
+| Agendamento | Multi-select (WhatsApp, Sistema de agendamento, Direct Instagram, Telefone) |
 | Performance de premium | Text |
 | Experiência com agência | Text |
 | Verba disponível | Text |
 | Observação livre | Text |
-| Vertical | Select (`Beleza/Estética`) |
-| Status | Select (crie `Novo — não triado`) |
+| Vertical | Select (Beleza/Estética) |
+| Status | Select (crie pelo menos "Novo - não triado") |
 
-### 2. Criar a integração do Notion (token)
+## Publicar / atualizar no Vercel
 
-1. **notion.so/my-integrations** → *New integration* → nome "F4Y Intake Beleza".
-2. Copie o **Internal Integration Secret**.
-3. Na database criada → **"..."** → **Connections** → conecte a integração.
-4. Copie o **ID da database** (32 caracteres na URL, entre a última `/` e o `?v=`).
+1. Suba os arquivos atualizados (`public/index.html` e `api/submit.js`) no mesmo repositório do GitHub, substituindo os antigos — abra cada arquivo lá no GitHub, clique no lápis (editar), apague tudo, cole o conteúdo novo, "Commit changes".
+2. A Vercel redeploya sozinha assim que detecta o commit novo (leva menos de 1 minuto).
+3. As variáveis de ambiente (`NOTION_TOKEN`, `NOTION_DATABASE_ID`) continuam as mesmas — não precisa mexer nelas.
 
-### 3. Publicar no Vercel
+## Testar
 
-1. Conta grátis em **vercel.com**.
-2. Suba esta pasta num repositório GitHub (ou arraste direto na Vercel).
-3. **New Project** → **Environment Variables**:
-   - `NOTION_TOKEN` = secret do passo 2
-   - `NOTION_DATABASE_ID` = ID do passo 2
-4. Deploy. Depois é só apontar um domínio seu se quiser (ex: `diagnostico.find4you.com.br`).
-
-### 4. Testar
-
-Preencha até o fim e confira se a linha apareceu na database com Status "Novo — não triado".
-
-## Depois de publicado
-
-- É este link — não o WhatsApp direto — que vai em qualquer copy/anúncio de captação pra Beleza/Estética.
-- Rotina de triagem: máx. 3 diagnósticos completos por semana, seguindo o playbook operacional já existente.
+Preencha o formulário publicado até o fim, envie, e confira se a linha nova apareceu na database com todos os campos (inclusive os multi-select) preenchidos certo.
