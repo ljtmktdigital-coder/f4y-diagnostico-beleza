@@ -38,6 +38,7 @@ export default async function handler(req, res) {
       'Nome': { title: [{ text: { content: d.nome || 'Sem nome' } }] },
       'Negócio': { rich_text: richText(d.negocio) },
       'Mercado': { select: { name: d.mercado || 'não informado' } },
+      'Cidade': { rich_text: richText(d.cidade) },
       'Contato': { rich_text: richText(d.whatsapp) },
       'E-mail': { rich_text: richText(d.email) },
       'Links': { rich_text: richText(d.links) },

@@ -291,6 +291,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <label class="choice" data-value="portugal"><input type="radio" name="mercado" value="Portugal">Portugal</label>
         </div>
 
+        <label>Cidade <span class="opt">(opcional)</span></label>
+        <input type="text" name="cidade" placeholder="ex: Cascais, Rio de Janeiro">
+
         <label>WhatsApp <span class="req">*</span></label>
         <input type="tel" name="whatsapp" required>
 
@@ -344,7 +347,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <input type="text" name="objetivo_90dias" placeholder="ex: encher a agenda de HIFU">
 
         <label>Numa escala de 1 a 5, o quão urgente é resolver isso? <span class="opt">(opcional)</span></label>
-        <div class="scale" data-name="urgencia">
+        <div class="scale choice-group" data-name="urgencia">
           <label class="choice" data-value="1"><input type="radio" name="urgencia" value="1">1</label>
           <label class="choice" data-value="2"><input type="radio" name="urgencia" value="2">2</label>
           <label class="choice" data-value="3"><input type="radio" name="urgencia" value="3">3</label>
@@ -433,6 +436,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const btnBack = document.getElementById('btn-back');
   const progressEls = document.querySelectorAll('.p-step');
 
+  // --- GTM / dataLayer: rastreamento de progresso do lead no funil ---
+  window.dataLayer = window.dataLayer || [];
+  const stepNames = {
+    1: 'identificacao',
+    2: 'qualificacao',
+    3: 'operacao',
+    4: 'fechamento'
+  };
+  function trackEvent(eventName, extra) {
+    window.dataLayer.push(Object.assign({
+      event: eventName,
+      form_name: 'diagnostico_estrategico_beleza'
+    }, extra || {}));
+  }
+  // Dispara assim que a pessoa começa a digitar/selecionar qualquer coisa, uma única vez.
+  let formStarted = false;
+  function trackFormStart() {
+    if (formStarted) return;
+    formStarted = true;
+    trackEvent('diagnostico_start');
+  }
+  // Visualização do primeiro passo, já ao carregar a página.
+  trackEvent('diagnostico_step_view', { step_number: 1, step_name: stepNames[1] });
+
   document.querySelectorAll('.choice-group').forEach(group => {
     const isMulti = group.dataset.multi === 'true';
     group.querySelectorAll('.choice').forEach(choice => {
@@ -484,8 +511,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     btnNext.disabled = !allValid;
   }
 
-  form.addEventListener('input', validateStep);
-  form.addEventListener('click', validateStep);
+  form.addEventListener('input', () => { trackFormStart(); validateStep(); });
+  form.addEventListener('click', () => { trackFormStart(); validateStep(); });
 
   function goToStep(n){
     document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
@@ -501,6 +528,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     btnNext.textContent = n === totalSteps ? 'Enviar' : 'Continuar';
     validateStep();
     window.scrollTo({top: 0, behavior:'smooth'});
+    trackEvent('diagnostico_step_view', { step_number: n, step_name: stepNames[n] });
   }
 
   btnBack.addEventListener('click', () => {
@@ -536,11 +564,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.querySelector('.card form').style.display = 'none';
       document.getElementById('nav-row').style.display = 'none';
       document.getElementById('success').style.display = 'block';
+      trackEvent('diagnostico_submit_success', {
+        mercado: data.mercado || '',
+        tipo_negocio: data.tipo_negocio || '',
+        faturamento: data.faturamento || '',
+        urgencia: data.urgencia || ''
+      });
     } catch(err){
       errorBanner.textContent = 'Não conseguimos enviar agora. Tenta de novo em alguns segundos — se persistir, chama no WhatsApp.';
       errorBanner.style.display = 'block';
       btnNext.disabled = false;
       btnNext.textContent = 'Enviar';
+      trackEvent('diagnostico_submit_error');
     }
   });
 
