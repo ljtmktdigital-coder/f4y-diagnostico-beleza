@@ -40,7 +40,7 @@ export default async function handler(req, res) {
       'Mercado': { select: { name: d.mercado || 'não informado' } },
       'Cidade': { rich_text: richText(d.cidade) },
       'Contato': { rich_text: richText(d.whatsapp) },
-      'E-mail': { rich_text: richText(d.email) },
+      'E-mail': { email: d.email || null },
       'Links': { rich_text: richText(d.links) },
       'Tipo de negócio': { select: { name: d.tipo_negocio || 'não informado' } },
       'Faturamento': { select: { name: d.faturamento || 'não informado' } },
