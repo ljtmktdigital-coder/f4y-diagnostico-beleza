@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Estratégico — W Spa · Find 4 You</title>
+<meta name="description" content="Diagnóstico estratégico preparado para a W Spa pela Find 4 You.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MRZXZNV4');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --f4y-rosa:#C81D69;
+    --f4y-roxo:#7F11C2;
+    --f4y-roxo-azulado:#681FE2;
+    --f4y-azul:#4763E0;
+    --f4y-cinza:#ACABA6;
+    --f4y-cinza-claro:#F4F3F6;
+    --f4y-branco:#FFFFFF;
+    --f4y-preto-texto:#17141C;
+    --f4y-gradiente: linear-gradient(135deg, #E0486F 0%, #955BAF 50%, #5685ED 100%);
+    --font-display:'Archivo Black', sans-serif;
+    --font-label:'Bebas Neue', sans-serif;
+    --font-body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:var(--font-body);
+    color:var(--f4y-preto-texto);
+    background:var(--f4y-cinza-claro);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:0 24px;}
+  header.hero{
+    background:var(--f4y-gradiente);
+    color:#fff;
+    padding:48px 24px 40px;
+    text-align:center;
+  }
+  header.hero .eyebrow{
+    font-family:var(--font-label);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-size:0.85rem;
+    opacity:0.9;
+  }
+  header.hero h1{
+    font-family:var(--font-display);
+    font-size:clamp(1.6rem, 5vw, 2.4rem);
+    margin:12px 0 12px;
+    line-height:1.2;
+  }
+  header.hero p{
+    font-size:1rem;
+    opacity:0.92;
+    max-width:480px;
+    margin:0 auto;
+  }
+  header.hero .proof{
+    margin-top:20px;
+    display:inline-flex;
+    gap:18px;
+    flex-wrap:wrap;
+    justify-content:center;
+    font-family:var(--font-label);
+    font-size:0.95rem;
+    letter-spacing:0.02em;
+  }
+  header.hero .proof span{opacity:0.95;}
+  header.hero .proof b{font-family:var(--font-display); display:block; font-size:1.1rem;}
+
+  main{padding:32px 0 80px;}
+  .card{
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 4px 24px rgba(0,0,0,0.08);
+    padding:28px 24px;
+    margin-top:-32px;
+  }
+  .progress{
+    display:flex;
+    gap:6px;
+    margin-bottom:24px;
+  }
+  .progress div{
+    flex:1;
+    height:4px;
+    border-radius:999px;
+    background:var(--f4y-cinza-claro);
+    overflow:hidden;
+  }
+  .progress div span{
+    display:block;
+    height:100%;
+    width:0%;
+    background:var(--f4y-rosa);
+    transition:width .3s ease;
+  }
+  .progress div.done span{width:100%;}
+  .progress div.active span{width:60%;}
+
+  .step{display:none;}
+  .step.active{display:block; animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  .step h2{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    margin-bottom:6px;
+  }
+  .step .step-sub{
+    color:var(--f4y-cinza);
+    font-size:0.9rem;
+    margin-bottom:20px;
+  }
+
+  label{
+    display:block;
+    font-size:0.85rem;
+    font-weight:600;
+    margin-bottom:6px;
+    margin-top:18px;
+  }
+  label .req{color:var(--f4y-rosa);}
+  label .opt{color:var(--f4y-cinza); font-weight:400; font-size:0.78rem;}
+  input[type=text], input[type=tel], input[type=email], input[type=url], textarea, select{
+    width:100%;
+    padding:12px 14px;
+    border:1.5px solid #E4E2E8;
+    border-radius:10px;
+    font-family:var(--font-body);
+    font-size:1rem;
+    color:var(--f4y-preto-texto);
+    background:#fff;
+  }
+  input:focus, textarea:focus, select:focus{
+    outline:none;
+    border-color:var(--f4y-roxo-azulado);
+  }
+  textarea{resize:vertical; min-height:80px;}
+
+  .choice-group{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
+  .choice{
+    border:1.5px solid #E4E2E8;
+    border-radius:999px;
+    padding:9px 16px;
+    font-size:0.9rem;
+    cursor:pointer;
+    background:#fff;
+    transition:all .15s ease;
+    user-select:none;
+  }
+  .choice.selected{
+    background:var(--f4y-roxo);
+    border-color:var(--f4y-roxo);
+    color:#fff;
+  }
+  .choice input{display:none;}
+  .choice-hint{font-size:0.78rem; color:var(--f4y-cinza); margin-top:6px;}
+
+  .scale{display:flex; gap:8px; margin-top:8px;}
+  .scale .choice{flex:1; text-align:center; padding:12px 0; font-family:var(--font-label); font-size:1.1rem;}
+
+  .conditional{
+    margin-top:12px;
+    padding-left:14px;
+    border-left:2px solid var(--f4y-cinza-claro);
+    display:none;
+  }
+  .conditional.show{display:block;}
+
+  .nav-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:28px;
+    gap:12px;
+  }
+  button{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:1rem;
+    border:none;
+    border-radius:999px;
+    padding:13px 26px;
+    cursor:pointer;
+    transition:opacity .15s ease, transform .1s ease;
+  }
+  button:active{transform:scale(0.98);}
+  .btn-primary{
+    background:var(--f4y-rosa);
+    color:#fff;
+    flex:1;
+  }
+  .btn-primary:disabled{opacity:0.45; cursor:not-allowed;}
+  .btn-ghost{
+    background:transparent;
+    color:var(--f4y-cinza);
+    padding:13px 10px;
+  }
+  .hint{font-size:0.78rem; color:var(--f4y-cinza); margin-top:6px;}
+
+  #success{display:none; text-align:center; padding:12px 4px 4px;}
+  #success h2{font-family:var(--font-display); font-size:1.4rem; margin-bottom:14px;}
+  #success p{color:var(--f4y-preto-texto); opacity:0.85; margin-bottom:14px; text-align:left;}
+  #success .badge{
+    display:inline-block;
+    background:var(--f4y-cinza-claro);
+    color:var(--f4y-preto-texto);
+    font-size:0.78rem;
+    font-weight:600;
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  #success .logo-mini{
+    width:56px; height:56px; border-radius:50%;
+    background:var(--f4y-gradiente);
+    margin:0 auto 20px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); color:#fff; font-size:1.4rem;
+  }
+
+  #error-banner{
+    display:none;
+    background:#FDEDF2; color:var(--f4y-rosa);
+    border-radius:10px; padding:12px 14px;
+    font-size:0.88rem; margin-top:16px;
+  }
+
+  footer{
+    text-align:center;
+    padding:24px;
+    font-size:0.78rem;
+    color:var(--f4y-cinza);
+  }
+  header.hero .for-tag{
+    display:inline-block;
+    margin-top:10px;
+    padding:6px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.18);
+    font-size:0.8rem;
+    font-weight:600;
+  }
+  header.hero .proof span{max-width:180px;}
+  .seal{font-size:0.78rem; opacity:0.85; margin-top:18px;}
+  header.hero{padding-bottom:60px;}
+  .choice-group .choice{margin-top:0; font-weight:500;}
+</style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRZXZNV4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="hero">
+  <div class="eyebrow">Find 4 You · Diagnóstico Estratégico</div>
+  <div class="for-tag">Preparado para a W Spa</div>
+  <h1>Onde o investimento em mídia da W Spa rende mais — e onde está vazando.</h1>
+  <p>Com dezenas de anúncios no Google e no Meta rodando entre várias unidades, o desafio não é saber se funciona. É saber onde cada real traz mais agendamento. Responda em cerca de 4 minutos e receba uma análise da sua estrutura de mídia por unidade e por serviço.</p>
+  <div class="proof">
+    <span><b>-68%</b>custo por aquisição · spa parceiro (Amsterdam)</span>
+    <span><b>+47,6%</b>conversões · clínica premium (Cascais)</span>
+  </div>
+  <p class="seal">Gratuito · Sem compromisso · 100% análise, sem pitch</p>
+</header>
+
+<main class="wrap">
+  <div class="card">
+    <div class="progress">
+      <div class="p-step active" data-step="1"><span></span></div>
+      <div class="p-step" data-step="2"><span></span></div>
+      <div class="p-step" data-step="3"><span></span></div>
+      <div class="p-step" data-step="4"><span></span></div>
+      <div class="p-step" data-step="5"><span></span></div>
+    </div>
+
+    <form id="intake-form">
+      <!-- Campos fixos da W Spa (não aparecem) -->
+      <input type="hidden" name="negocio" value="W Spa">
+      <input type="hidden" name="mercado" value="Brasil">
+      <input type="hidden" name="cidade" value="Rio de Janeiro">
+      <input type="hidden" name="links" value="instagram.com/wspa · wspa.com.br">
+      <input type="hidden" name="tipo_negocio" value="Outro">
+      <input type="hidden" name="investe_trafego" value="Sim - invisto hoje">
+
+      <!-- STEP 1 -->
+      <section class="step active" data-step="1">
+        <h2>Quem está respondendo</h2>
+        <p class="step-sub">Só o essencial pra gente falar com a pessoa certa.</p>
+
+        <label>Seu nome completo <span class="req">*</span></label>
+        <input type="text" name="nome" required>
+
+        <label>Sua função <span class="req">*</span></label>
+        <div class="choice-group" data-name="funcao">
+          <label class="choice"><input type="radio" name="funcao" value="Marketing e parcerias" required>Marketing e parcerias</label>
+          <label class="choice"><input type="radio" name="funcao" value="Sócia/diretoria">Sócia/diretoria</label>
+          <label class="choice"><input type="radio" name="funcao" value="Gerente de unidade">Gerente de unidade</label>
+          <label class="choice"><input type="radio" name="funcao" value="Outro">Outro</label>
+        </div>
+
+        <label>WhatsApp <span class="req">*</span></label>
+        <input type="tel" name="whatsapp" required>
+
+        <label>E-mail <span class="req">*</span></label>
+        <input type="email" name="email" required>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="step" data-step="2">
+        <h2>A rede hoje</h2>
+        <p class="step-sub">Pra ler a W Spa como rede, e não como uma unidade só.</p>
+
+        <label>Quantas unidades ativas? <span class="req">*</span></label>
+        <div class="choice-group" data-name="unidades">
+          <label class="choice"><input type="radio" name="unidades" value="1" required>1</label>
+          <label class="choice"><input type="radio" name="unidades" value="2-3">2–3</label>
+          <label class="choice"><input type="radio" name="unidades" value="4-6">4–6</label>
+          <label class="choice"><input type="radio" name="unidades" value="7+">7 ou mais</label>
+        </div>
+
+        <label>Quais unidades são prioridade de agenda nos próximos 90 dias? <span class="opt">(opcional)</span></label>
+        <input type="text" name="unidades_prioridade" placeholder="ex: Barra e Leblon">
+
+        <label>Faturamento mensal da rede (aprox.) <span class="req">*</span></label>
+        <div class="choice-group" data-name="faturamento_rede">
+          <label class="choice"><input type="radio" name="faturamento_rede" value="até R$ 100 mil" required>até R$ 100 mil</label>
+          <label class="choice"><input type="radio" name="faturamento_rede" value="R$ 100-300 mil">R$ 100–300 mil</label>
+          <label class="choice"><input type="radio" name="faturamento_rede" value="R$ 300 mil-1 mi">R$ 300 mil–1 mi</label>
+          <label class="choice"><input type="radio" name="faturamento_rede" value="acima de R$ 1 mi">acima de R$ 1 mi</label>
+          <label class="choice"><input type="radio" name="faturamento_rede" value="Prefiro não informar">Prefiro não informar</label>
+        </div>
+
+        <label>Atendimentos por mês, somando as unidades (aprox.) <span class="opt">(opcional)</span></label>
+        <input type="text" name="atendimentos_mes">
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="step" data-step="3">
+        <h2>Mídia e gestão</h2>
+        <p class="step-sub">Aqui está o coração do diagnóstico.</p>
+
+        <label>Quem gere Google Ads e Meta Ads hoje? <span class="req">*</span></label>
+        <div class="choice-group" data-name="gestao">
+          <label class="choice"><input type="radio" name="gestao" value="Equipe interna" required>Equipe interna</label>
+          <label class="choice"><input type="radio" name="gestao" value="Agência">Agência</label>
+          <label class="choice"><input type="radio" name="gestao" value="Freelancer">Freelancer</label>
+          <label class="choice"><input type="radio" name="gestao" value="Misto">Misto</label>
+        </div>
+
+        <label>Investimento mensal em mídia (aprox.) <span class="req">*</span></label>
+        <div class="choice-group" data-name="verba_atual">
+          <label class="choice"><input type="radio" name="verba_atual" value="até R$ 10 mil" required>até R$ 10 mil</label>
+          <label class="choice"><input type="radio" name="verba_atual" value="R$ 10-30 mil">R$ 10–30 mil</label>
+          <label class="choice"><input type="radio" name="verba_atual" value="R$ 30-80 mil">R$ 30–80 mil</label>
+          <label class="choice"><input type="radio" name="verba_atual" value="acima de R$ 80 mil">acima de R$ 80 mil</label>
+        </div>
+
+        <label>A verba é dividida por unidade? <span class="opt">(opcional)</span></label>
+        <div class="choice-group" data-name="verba_por_unidade">
+          <label class="choice"><input type="radio" name="verba_por_unidade" value="Sim, cada unidade tem a sua">Sim, cada unidade tem a sua</label>
+          <label class="choice"><input type="radio" name="verba_por_unidade" value="Não, é uma verba única">Não, é uma verba única</label>
+          <label class="choice"><input type="radio" name="verba_por_unidade" value="Parcialmente">Parcialmente</label>
+          <label class="choice"><input type="radio" name="verba_por_unidade" value="Não sei">Não sei</label>
+        </div>
+
+        <label>Hoje vocês conseguem ver o custo por agendamento de cada unidade? <span class="opt">(opcional)</span></label>
+        <div class="choice-group" data-name="custo_por_unidade">
+          <label class="choice"><input type="radio" name="custo_por_unidade" value="Sim, por unidade e por campanha">Sim, por unidade e por campanha</label>
+          <label class="choice"><input type="radio" name="custo_por_unidade" value="Só o total da rede">Só o total da rede</label>
+          <label class="choice"><input type="radio" name="custo_por_unidade" value="Não conseguimos medir">Não conseguimos medir</label>
+        </div>
+
+        <label>Qual canal traz as melhores clientes? <span class="opt">(selecione quantas quiser)</span></label>
+        <div class="choice-group" data-multi="true" data-name="canais">
+          <label class="choice"><input type="checkbox" name="canais" value="Google">Google</label>
+          <label class="choice"><input type="checkbox" name="canais" value="Meta/Instagram Ads">Meta/Instagram Ads</label>
+          <label class="choice"><input type="checkbox" name="canais" value="Instagram orgânico">Instagram orgânico</label>
+          <label class="choice"><input type="checkbox" name="canais" value="Indicação">Indicação</label>
+          <label class="choice"><input type="checkbox" name="canais" value="Parcerias">Parcerias</label>
+          <label class="choice"><input type="checkbox" name="canais" value="Vale-presente">Vale-presente</label>
+          <label class="choice"><input type="checkbox" name="canais" value="Não sei">Não sei</label>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section class="step" data-step="4">
+        <h2>Serviços e jornada</h2>
+        <p class="step-sub">O que dá mais margem e onde sobra agenda.</p>
+
+        <label>Seus 2–3 rituais/serviços mais lucrativos e o ticket médio de cada <span class="opt">(opcional)</span></label>
+        <textarea name="servicos_ticket" placeholder="ex: Day Spa R$ 890 · Massagem relaxante R$ 320"></textarea>
+
+        <label>Há serviços, unidades ou horários que ficam ociosos? Quais? <span class="opt">(opcional)</span></label>
+        <textarea name="premium_performance" placeholder="ex: terça e quarta à tarde na unidade X"></textarea>
+
+        <label>Quanto o vale-presente pesa no faturamento? <span class="opt">(opcional)</span></label>
+        <div class="choice-group" data-name="vale_presente">
+          <label class="choice"><input type="radio" name="vale_presente" value="Muito">Muito</label>
+          <label class="choice"><input type="radio" name="vale_presente" value="Médio">Médio</label>
+          <label class="choice"><input type="radio" name="vale_presente" value="Pouco">Pouco</label>
+          <label class="choice"><input type="radio" name="vale_presente" value="Não vendemos">Não vendemos</label>
+        </div>
+
+        <label>Como a cliente agenda hoje? <span class="opt">(selecione quantas quiser)</span></label>
+        <div class="choice-group" data-multi="true" data-name="agendamento">
+          <label class="choice"><input type="checkbox" name="agendamento" value="WhatsApp">WhatsApp</label>
+          <label class="choice"><input type="checkbox" name="agendamento" value="Sistema de agendamento">Sistema/agenda online</label>
+          <label class="choice"><input type="checkbox" name="agendamento" value="Telefone">Telefone</label>
+          <label class="choice"><input type="checkbox" name="agendamento" value="Direct Instagram">Direct do Instagram</label>
+        </div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section class="step" data-step="5">
+        <h2>Últimas perguntas</h2>
+        <p class="step-sub">Quase lá.</p>
+
+        <label>Maior objetivo nos próximos 90 dias <span class="req">*</span></label>
+        <div class="choice-group" data-name="objetivo_90dias">
+          <label class="choice"><input type="radio" name="objetivo_90dias" value="Reduzir o custo por agendamento" required>Reduzir o custo por agendamento</label>
+          <label class="choice"><input type="radio" name="objetivo_90dias" value="Encher unidades ou horários específicos">Encher unidades ou horários específicos</label>
+          <label class="choice"><input type="radio" name="objetivo_90dias" value="Vender mais pacotes e vale-presente">Vender mais pacotes e vale-presente</label>
+          <label class="choice"><input type="radio" name="objetivo_90dias" value="Atrair clientes de ticket mais alto">Atrair clientes de ticket mais alto</label>
+          <label class="choice"><input type="radio" name="objetivo_90dias" value="Outro">Outro</label>
+        </div>
+
+        <label>Numa escala de 1 a 5, o quão urgente é resolver isso? <span class="opt">(opcional)</span></label>
+        <div class="scale choice-group" data-name="urgencia">
+          <label class="choice"><input type="radio" name="urgencia" value="1">1</label>
+          <label class="choice"><input type="radio" name="urgencia" value="2">2</label>
+          <label class="choice"><input type="radio" name="urgencia" value="3">3</label>
+          <label class="choice"><input type="radio" name="urgencia" value="4">4</label>
+          <label class="choice"><input type="radio" name="urgencia" value="5">5</label>
+        </div>
+        <p class="hint">1 = posso esperar · 5 = preciso pra ontem</p>
+
+        <label>Para um diagnóstico com dados reais, vocês compartilhariam acesso de leitura ao Google Ads e ao Meta? <span class="opt">(opcional)</span></label>
+        <div class="choice-group" data-name="acesso_leitura">
+          <label class="choice"><input type="radio" name="acesso_leitura" value="Sim">Sim</label>
+          <label class="choice"><input type="radio" name="acesso_leitura" value="Prefiro mostrar na call">Prefiro mostrar na call</label>
+          <label class="choice"><input type="radio" name="acesso_leitura" value="Não por enquanto">Não por enquanto</label>
+        </div>
+        <p class="hint">Acesso só de leitura: não conseguimos alterar nada nas contas.</p>
+
+        <label>Algo que você queira que a gente olhe com atenção? <span class="opt">(opcional)</span></label>
+        <textarea name="observacao_texto"></textarea>
+
+        <div id="error-banner"></div>
+      </section>
+    </form>
+
+    <div id="success">
+      <div class="logo-mini">f</div>
+      <span class="badge">Sem pitch de vendas — só análise</span>
+      <h2>Recebido, obrigado!</h2>
+      <p><strong>Em até 48h úteis</strong> você recebe nosso retorno pelo WhatsApp para agendarmos a apresentação do diagnóstico da W Spa: 20 minutos, 100% análise, sem pitch de venda.</p>
+      <p>Avançar para uma proposta é uma decisão de vocês, no tempo de vocês — só se fizer sentido.</p>
+    </div>
+
+    <div class="nav-row" id="nav-row">
+      <button type="button" class="btn-ghost" id="btn-back" style="visibility:hidden;">Voltar</button>
+      <button type="button" class="btn-primary" id="btn-next" disabled>Continuar</button>
+    </div>
+  </div>
+</main>
+
+<footer>Find 4 You — Estratégia antes de tráfego</footer>
+
+<script>
+  const totalSteps = 5;
+  let currentStep = 1;
+  const form = document.getElementById('intake-form');
+  const btnNext = document.getElementById('btn-next');
+  const btnBack = document.getElementById('btn-back');
+  const progressEls = document.querySelectorAll('.p-step');
+
+  window.dataLayer = window.dataLayer || [];
+  const stepNames = {1:'identificacao', 2:'rede', 3:'midia', 4:'servicos', 5:'fechamento'};
+  function trackEvent(eventName, extra) {
+    window.dataLayer.push(Object.assign({
+      event: eventName,
+      form_name: 'diagnostico_estrategico_beleza',
+      form_variant: 'wspa'
+    }, extra || {}));
+  }
+  let formStarted = false;
+  function trackFormStart() {
+    if (formStarted) return;
+    formStarted = true;
+    trackEvent('diagnostico_start');
+  }
+  trackEvent('diagnostico_step_view', { step_number: 1, step_name: stepNames[1] });
+
+  document.querySelectorAll('.choice-group').forEach(group => {
+    const isMulti = group.dataset.multi === 'true';
+    group.querySelectorAll('.choice').forEach(choice => {
+      choice.addEventListener('click', (e) => {
+        e.preventDefault();
+        const input = choice.querySelector('input');
+        if (isMulti) {
+          input.checked = !input.checked;
+          choice.classList.toggle('selected', input.checked);
+        } else {
+          group.querySelectorAll(`input[name="${input.name}"]`).forEach(i => {
+            i.closest('.choice').classList.remove('selected');
+          });
+          input.checked = true;
+          choice.classList.add('selected');
+        }
+        trackFormStart();
+        validateStep();
+      });
+    });
+  });
+
+  function currentStepEl(){ return document.querySelector(`.step[data-step="${currentStep}"]`); }
+
+  function validateStep(){
+    const stepEl = currentStepEl();
+    let allValid = true;
+    const seen = new Set();
+    stepEl.querySelectorAll('[required]').forEach(inp => {
+      if(inp.type === 'radio'){
+        if(seen.has(inp.name)) return;
+        seen.add(inp.name);
+        if(!stepEl.querySelector(`input[name="${inp.name}"]:checked`)) allValid = false;
+      } else if(!inp.value.trim()) {
+        allValid = false;
+      } else if(inp.type === 'email' && !inp.checkValidity()) {
+        allValid = false;
+      }
+    });
+    btnNext.disabled = !allValid;
+  }
+
+  form.addEventListener('input', () => { trackFormStart(); validateStep(); });
+
+  function goToStep(n){
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.querySelector(`.step[data-step="${n}"]`).classList.add('active');
+    progressEls.forEach(p => {
+      const s = parseInt(p.dataset.step);
+      p.classList.remove('active','done');
+      if(s < n) p.classList.add('done');
+      if(s === n) p.classList.add('active');
+    });
+    currentStep = n;
+    btnBack.style.visibility = n === 1 ? 'hidden' : 'visible';
+    btnNext.textContent = n === totalSteps ? 'Enviar' : 'Continuar';
+    validateStep();
+    window.scrollTo({top: 0, behavior:'smooth'});
+    trackEvent('diagnostico_step_view', { step_number: n, step_name: stepNames[n] });
+  }
+
+  btnBack.addEventListener('click', () => { if(currentStep > 1) goToStep(currentStep - 1); });
+
+  // Converte as respostas da versão W Spa para o formato que o /api/submit já aceita,
+  // usando só opções que já existem na database do Notion (nada quebra no envio).
+  function buildPayload(){
+    const fd = new FormData(form);
+    const one = (k) => (fd.get(k) || '').toString().trim();
+    const many = (k) => fd.getAll(k).map(v => v.toString());
+
+    const canais = many('canais');
+    const origemMap = {'Google':'Google','Meta/Instagram Ads':'Anúncios','Instagram orgânico':'Orgânico','Indicação':'Indicação'};
+    const origem = [...new Set(canais.map(c => origemMap[c]).filter(Boolean))];
+
+    const gestao = one('gestao');
+    const quemCuida = gestao === 'Equipe interna' ? 'Um funcionário'
+                    : gestao ? 'Uma agência/freelancer' : '';
+
+    const faturamentoRede = one('faturamento_rede');
+    const faturamento = '80 mil+'; // faixa real vai no resumo (observacao_livre)
+
+    const resumo = [
+      '[Formulário W Spa · PRO-394]',
+      'Função: ' + (one('funcao') || '-'),
+      'Unidades ativas: ' + (one('unidades') || '-'),
+      'Unidades prioritárias: ' + (one('unidades_prioridade') || '-'),
+      'Faturamento da rede: ' + (faturamentoRede || '-'),
+      'Gestão de mídia: ' + (gestao || '-'),
+      'Verba por unidade: ' + (one('verba_por_unidade') || '-'),
+      'Vê custo por agendamento por unidade: ' + (one('custo_por_unidade') || '-'),
+      'Melhores canais: ' + (canais.join(', ') || '-'),
+      'Peso do vale-presente: ' + (one('vale_presente') || '-'),
+      'Acesso de leitura às contas: ' + (one('acesso_leitura') || '-'),
+      '',
+      'Observação: ' + (one('observacao_texto') || '-')
+    ].join('\n');
+
+    return {
+      nome: one('nome'),
+      negocio: one('negocio'),
+      mercado: one('mercado'),
+      cidade: one('cidade'),
+      whatsapp: one('whatsapp'),
+      email: one('email'),
+      links: one('links'),
+      tipo_negocio: one('tipo_negocio'),
+      faturamento: faturamento,
+      investe_trafego: one('investe_trafego'),
+      verba_atual: one('verba_atual'),
+      quem_cuida: quemCuida,
+      objetivo_90dias: one('objetivo_90dias'),
+      urgencia: one('urgencia'),
+      servicos_ticket: one('servicos_ticket'),
+      origem_clientes: origem,
+      atendimentos_mes: one('atendimentos_mes'),
+      noshow: '',
+      agendamento: many('agendamento'),
+      premium_performance: one('premium_performance') ? 'Ociosidade: ' + one('premium_performance') : '',
+      experiencia_agencia: gestao ? 'Gestão atual: ' + gestao : '',
+      verba_disponivel: one('verba_atual'),
+      observacao_livre: resumo
+    };
+  }
+
+  btnNext.addEventListener('click', async () => {
+    if(btnNext.disabled) return;
+    if(currentStep < totalSteps){ goToStep(currentStep + 1); return; }
+
+    btnNext.disabled = true;
+    btnNext.textContent = 'Enviando...';
+    const errorBanner = document.getElementById('error-banner');
+    errorBanner.style.display = 'none';
+    const data = buildPayload();
+
+    try{
+      const res = await fetch('/api/submit', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      });
+      if(!res.ok) throw new Error('submit failed');
+      form.style.display = 'none';
+      document.getElementById('nav-row').style.display = 'none';
+      document.querySelector('.progress').style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+      trackEvent('diagnostico_submit_success', {
+        mercado: data.mercado, tipo_negocio: 'Spa', faturamento: data.faturamento, urgencia: data.urgencia
+      });
+    } catch(err){
+      errorBanner.textContent = 'Não conseguimos enviar agora. Tenta de novo em alguns segundos — se persistir, chama no WhatsApp.';
+      errorBanner.style.display = 'block';
+      btnNext.disabled = false;
+      btnNext.textContent = 'Enviar';
+      trackEvent('diagnostico_submit_error');
+    }
+  });
+
+  validateStep();
+</script>
+
+</body>
+</html>
