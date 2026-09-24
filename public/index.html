@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diagnóstico Estratégico Gratuito — Find 4 You para Beleza & Estética</title>
-<meta name="description" content="Responda em alguns minutos e receba um raio-x da aquisição de clientes da sua clínica/salão/centro estético — feito pela Find 4 You.">
+<title>Diagnóstico Estratégico Gratuito — Find 4 You para Beleza & Bem-Estar</title>
+<meta name="description" content="Responda em alguns minutos e receba um raio-x da aquisição de clientes da sua clínica de estética, salão de beleza, spa ou negócio local por agendamento — feito pela Find 4 You.">
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -78,6 +78,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   header.hero .proof span{opacity:0.95;}
   header.hero .proof b{font-family:var(--font-display); display:block; font-size:1.1rem;}
+  header.hero .for-tag{
+    display:inline-block;
+    margin-top:10px;
+    padding:6px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.18);
+    font-size:0.8rem;
+    font-weight:600;
+  }
 
   main{padding:32px 0 80px;}
   .card{
@@ -254,12 +263,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <header class="hero">
-  <div class="eyebrow">Find 4 You · Beleza & Estética</div>
-  <h1>Diagnóstico Estratégico Gratuito</h1>
-  <p>Alguns minutos. Sem compromisso. No final, avaliamos os 3 gargalos que mais custam receita na sua agenda hoje.</p>
+  <div class="eyebrow">Find 4 You · Diagnóstico Estratégico</div>
+  <div class="for-tag" id="for-tag" style="display:none;">Preparado para <span id="for-tag-name"></span></div>
+  <h1 id="hero-title">Diagnóstico Estratégico Gratuito</h1>
+  <p id="hero-sub">Alguns minutos. Sem compromisso. Pra clínicas de estética, salões de beleza, spas e negócios locais que vivem de agenda cheia. No final, avaliamos os 3 gargalos que mais custam receita na sua agenda hoje.</p>
   <div class="proof">
     <span><b>+47,6%</b>conversões — Be You (Cascais)</span>
     <span><b>-18%</b>CPA no mesmo período</span>
+    <span><b>-68%</b>CPA — spa parceiro (Amsterdam)</span>
   </div>
 </header>
 
@@ -303,10 +314,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <label>Link do Instagram e do site <span class="opt">(se tiver)</span></label>
         <input type="text" name="links" placeholder="@seuinstagram · seusite.com">
 
-        <label>Tipo de negócio (Beleza/Estética) <span class="req">*</span></label>
+        <label>Tipo de negócio <span class="req">*</span></label>
         <div class="choice-group" data-name="tipo_negocio">
           <label class="choice" data-value="salao"><input type="radio" name="tipo_negocio" value="Salão de Beleza" required>Salão de Beleza</label>
-          <label class="choice" data-value="centro"><input type="radio" name="tipo_negocio" value="Centro Estético">Centro Estético</label>
+          <label class="choice" data-value="clinica"><input type="radio" name="tipo_negocio" value="Clínica de Estética">Clínica de Estética</label>
+          <label class="choice" data-value="spa"><input type="radio" name="tipo_negocio" value="Spa / Studio de Bem-estar">Spa / Studio</label>
           <label class="choice" data-value="outro"><input type="radio" name="tipo_negocio" value="Outro">Outro</label>
         </div>
       </section>
@@ -344,7 +356,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <label>Qual seu maior objetivo nos próximos 90 dias? <span class="opt">(opcional)</span></label>
-        <input type="text" name="objetivo_90dias" placeholder="ex: encher a agenda de HIFU">
+        <input type="text" name="objetivo_90dias" placeholder="ex: encher a agenda nos horários vagos">
 
         <label>Numa escala de 1 a 5, o quão urgente é resolver isso? <span class="opt">(opcional)</span></label>
         <div class="scale choice-group" data-name="urgencia">
@@ -363,7 +375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="step-sub">Direto ao ponto — só o que muda o diagnóstico.</p>
 
         <label>Quais seus 2-3 serviços mais lucrativos e o ticket médio de cada? <span class="opt">(opcional)</span></label>
-        <textarea name="servicos_ticket" placeholder="ex: HIFU R$1.800 · PMU R$900"></textarea>
+        <textarea name="servicos_ticket" placeholder="ex: HIFU R$1.800 · Coloração R$450 · Limpeza de pele R$250"></textarea>
 
         <label>De onde vêm a maioria das clientes hoje? <span class="opt">(selecione quantas quiser)</span></label>
         <div class="choice-group" data-multi="true" data-name="origem_clientes">
@@ -388,7 +400,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <label class="choice" data-value="telefone"><input type="checkbox" name="agendamento" value="Telefone">Telefone</label>
         </div>
 
-        <label>Seus serviços premium (ex: HIFU, PMU) vendem bem ou ficam parados? <span class="opt">(opcional)</span></label>
+        <label>Seus serviços de maior ticket (ex: HIFU, PMU, tratamentos avançados) vendem bem ou ficam parados? <span class="opt">(opcional)</span></label>
         <input type="text" name="premium_performance">
       </section>
 
@@ -426,7 +438,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
-<footer>Find 4 You — Estratégia, Tráfego Pago e Amplificação Digital · Beleza & Estética</footer>
+<footer>Find 4 You — Estratégia, Tráfego Pago e Amplificação Digital · Beleza & Bem-Estar</footer>
 
 <script>
   const totalSteps = 4;
@@ -435,6 +447,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const btnNext = document.getElementById('btn-next');
   const btnBack = document.getElementById('btn-back');
   const progressEls = document.querySelectorAll('.p-step');
+
+  // --- Personalização via link, sem editar o HTML por lead ---
+  // Envie o link com parâmetros, ex:
+  // index.html?negocio=Studio%20Bella&cidade=Lisboa&mercado=portugal&tipo=clinica&nome=Maria
+  (function personalizeFromURL(){
+    const params = new URLSearchParams(window.location.search);
+    const negocio = params.get('negocio');
+    const cidade = params.get('cidade');
+    const mercado = params.get('mercado'); // 'brasil' ou 'portugal'
+    const tipo = params.get('tipo'); // 'salao' | 'clinica' | 'spa' | 'outro'
+    const nomeContato = params.get('nome');
+
+    if(negocio){
+      const negocioInput = form.querySelector('[name="negocio"]');
+      if(negocioInput) negocioInput.value = negocio;
+      document.getElementById('for-tag-name').textContent = negocio;
+      document.getElementById('for-tag').style.display = 'inline-block';
+      document.getElementById('hero-title').textContent = `Onde o investimento em mídia da ${negocio} rende mais — e onde está vazando.`;
+    }
+    if(cidade){
+      const cidadeInput = form.querySelector('[name="cidade"]');
+      if(cidadeInput) cidadeInput.value = cidade;
+    }
+    if(nomeContato){
+      const nomeInput = form.querySelector('[name="nome"]');
+      if(nomeInput) nomeInput.value = nomeContato;
+    }
+    function selectChoice(name, value){
+      const input = form.querySelector(`[name="${name}"][value="${value}"]`);
+      if(!input) return;
+      input.checked = true;
+      const label = input.closest('.choice');
+      if(label){
+        label.parentElement.querySelectorAll('.choice').forEach(c => c.classList.remove('selected'));
+        label.classList.add('selected');
+      }
+    }
+    if(mercado){
+      const map = { brasil:'Brasil', portugal:'Portugal' };
+      const v = map[mercado.toLowerCase()];
+      if(v) selectChoice('mercado', v);
+    }
+    if(tipo){
+      const map = { salao:'Salão de Beleza', clinica:'Clínica de Estética', spa:'Spa / Studio de Bem-estar', outro:'Outro' };
+      const v = map[tipo.toLowerCase()];
+      if(v) selectChoice('tipo_negocio', v);
+    }
+  })();
 
   // --- GTM / dataLayer: rastreamento de progresso do lead no funil ---
   window.dataLayer = window.dataLayer || [];
